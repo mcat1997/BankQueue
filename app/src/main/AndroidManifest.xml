@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.BookActicvity" />
-        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.WaitingActivity" />
+        <activity android:name=".activity.EndingActivity"></activity>
     </application>
 
 </manifest>

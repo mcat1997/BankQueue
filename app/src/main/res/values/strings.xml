@@ -17,4 +17,6 @@
     <string name="error_diffPass">两遍密码不一致</string>
     <string name="point_register_success">注册成功</string>
     <string name="error_internet">网络异常</string>
+    <string name="book">叫号</string>
+    <string name="username">username</string>
 </resources>

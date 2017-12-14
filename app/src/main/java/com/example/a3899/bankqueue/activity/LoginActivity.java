@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (loginEntity.isStatus()) {
                                 SharedPreferences preferences = getSharedPreferences("user", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = preferences.edit();
-                                editor.putInt("userID", loginEntity.getUserId());
+                                editor.putInt("userId", loginEntity.getUserId());
                                 editor.apply();
 
                                 Intent intent = new Intent(LoginActivity.this, BookActicvity.class);

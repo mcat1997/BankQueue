@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManager {
 
-    private static final String BASE_URL = "http://192.168.33.98:5000/android/";
+    private static final String BASE_URL = "http://bank.zhengzhaoyu.cn/android/";
 
     private static final Retrofit retrofit;
 
