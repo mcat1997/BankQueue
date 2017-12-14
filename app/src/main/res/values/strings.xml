@@ -19,4 +19,6 @@
     <string name="error_internet">网络异常</string>
     <string name="book">叫号</string>
     <string name="username">username</string>
+    <string name="exitbook">取消叫号</string>
+    <string name="point_waiting">您前面还有 %d人</string>
 </resources>
