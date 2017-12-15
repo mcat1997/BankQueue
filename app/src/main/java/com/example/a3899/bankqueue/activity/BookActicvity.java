@@ -49,7 +49,7 @@ public class BookActicvity extends AppCompatActivity implements View.OnClickList
                 .subscribe(new Consumer<BookEntity>() {
                     @Override
                     public void accept(BookEntity bookEntity) throws Exception {
-                        if (!bookEntity.isStatus()) {
+                        if (bookEntity.getMessage().equals(getString(R.string.no_such_user))) {
                             Toast.makeText(BookActicvity.this, bookEntity.getMessage(), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(BookActicvity.this, bookEntity.getMessage(), Toast.LENGTH_SHORT).show();

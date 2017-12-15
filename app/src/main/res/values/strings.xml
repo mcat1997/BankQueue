@@ -21,4 +21,6 @@
     <string name="username">username</string>
     <string name="exitbook">取消叫号</string>
     <string name="point_waiting">您前面还有 %d人</string>
+    <string name="no_such_user">用户不存在</string>
+    <string name="ending_string">%d号柜台为您服务</string>
 </resources>

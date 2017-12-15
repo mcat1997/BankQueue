@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.example.a3899.bankqueue.R;
 import com.example.a3899.bankqueue.common.RetrofitManager;
+import com.example.a3899.bankqueue.entity.CancelEntity;
 import com.example.a3899.bankqueue.entity.WaitingEntity;
+import com.example.a3899.bankqueue.service.CancelService;
 import com.example.a3899.bankqueue.service.WaitingService;
 
 import java.util.concurrent.TimeUnit;
@@ -35,6 +37,7 @@ public class WaitingActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.waiting_button)
     Button button;
     private WaitingService waitingService = RetrofitManager.create(WaitingService.class);
+    private CancelService cancelService = RetrofitManager.create(CancelService.class);
 
     private Disposable disposable;
 
@@ -106,6 +109,26 @@ public class WaitingActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        SharedPreferences preferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+        Integer userId = preferences.getInt("userId", 0);
+
+        cancelService.cancel(userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<CancelEntity>() {
+                    @Override
+                    public void accept(CancelEntity cancelEntity) throws Exception {
+                        Toast.makeText(WaitingActivity.this, cancelEntity.getMessage(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(WaitingActivity.this, BookActicvity.class);
+                        WaitingActivity.this.startActivity(intent);
+                        WaitingActivity.this.finish();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(WaitingActivity.this, R.string.error_internet, Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 }
