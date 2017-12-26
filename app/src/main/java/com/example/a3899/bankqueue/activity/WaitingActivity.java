@@ -82,7 +82,7 @@ public class WaitingActivity extends AppCompatActivity implements View.OnClickLi
                             } else {
                                 SharedPreferences preferences1 = getSharedPreferences("user", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = preferences1.edit();
-                                editor.putInt("couterId", waitingEntityObservable.getCounterId());
+                                editor.putInt("counterId", waitingEntityObservable.getCounterId());
                                 editor.apply();
 
                                 Intent intent = new Intent(WaitingActivity.this, EndingActivity.class);
